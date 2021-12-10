@@ -15,20 +15,24 @@
  */
 
 package sample.tomcat.jndi.web;
-import org.apache.logging.log4j.LogManager;
+
 import org.apache.logging.log4j.Logger;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+
 @Controller
 public class SampleController {
+
+	private static final Logger logger = LogManager.getLogger();
+
 
 	@Autowired
 	private DataSource dataSource;
